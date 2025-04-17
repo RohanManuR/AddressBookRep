@@ -74,5 +74,19 @@ public class AddressBookSystem {
             }
         }
 
+        System.out.println("Enter Person name to Delete person details");
+        String name1 = scanner.next();
+        for (int i=0;i<list.size();i++)
+        {
+            if(list.get(i).firstName.equals(name1))
+            {
+                System.out.println("Yes, Person details present you can delete,...");
+                list.remove(i);
+            }
+            else {
+                System.out.println("Sorry, Person details not present you can't delete,...");
+            }
+        }
+
     }
 }

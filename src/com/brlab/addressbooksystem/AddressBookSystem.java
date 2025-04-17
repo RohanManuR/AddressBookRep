@@ -43,10 +43,17 @@ public class AddressBookSystem {
 
         Scanner scanner = new Scanner(System.in);
         boolean result = true;
-        do
+        while(result)
         {
             System.out.println("Enter First name");
             String firstName = scanner.next();
+            for(int i=0;i<list.size();i++)
+            {
+                if(list.get(i).firstName.equals(firstName)) {
+                    System.out.println("Person already added");
+                    break;
+                }
+            }
             System.out.println("Enter Last name");
             String lastName = scanner.next();
             System.out.println("Enter city");
@@ -67,7 +74,7 @@ public class AddressBookSystem {
             if(x!=1)
                 break;
 
-        }while(result);
+        }
 
        for (ContactPerson person : list)
        {

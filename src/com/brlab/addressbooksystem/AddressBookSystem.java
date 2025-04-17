@@ -1,5 +1,7 @@
 package com.brlab.addressbooksystem;
 
+import java.util.Scanner;
+
 class ContactPerson
 {
     String firstName;
@@ -19,11 +21,41 @@ class ContactPerson
         this.mobileNo = mobileNo;
         this.email = email;
     }
+    public void displayPersonDetails()
+    {
+        System.out.println("First name : "+this.firstName);
+        System.out.println("Last name : "+this.lastName);
+        System.out.println("city : "+this.city);
+        System.out.println("state : "+this.state);
+        System.out.println("zip : "+this.zip);
+        System.out.println("Mobile no : "+this.mobileNo);
+        System.out.println("Email : "+this.email);
+    }
 }
 public class AddressBookSystem {
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program in AddressBook Main class on Master Branch");
         ContactPerson contactPerson = new ContactPerson("Rohan","R","Mysuru","Karnataka",57008,9902508574L,"rohanrmanu99@gmail.com");
+        contactPerson.displayPersonDetails();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter First name");
+        String firstName = scanner.next();
+        System.out.println("Enter Last name");
+        String lastName = scanner.next();
+        System.out.println("Enter city");
+        String city = scanner.next();
+        System.out.println("Enter state");
+        String state = scanner.next();
+        System.out.println("Enter Zip");
+        int zip = scanner.nextInt();
+        System.out.println("Enter Mobile number");
+        long mob = scanner.nextLong();
+        System.out.println("Enter email");
+        String email = scanner.next();
+
+        ContactPerson contactPerson2 = new ContactPerson(firstName,lastName,city,state,zip,mob,email);
+        contactPerson2.displayPersonDetails();
 
     }
 }

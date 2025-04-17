@@ -1,5 +1,6 @@
 package com.brlab.addressbooksystem;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class ContactPerson
@@ -33,9 +34,11 @@ class ContactPerson
     }
 }
 public class AddressBookSystem {
+   static ArrayList<ContactPerson> list = new ArrayList<>();
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program in AddressBook Main class on Master Branch");
         ContactPerson contactPerson = new ContactPerson("Rohan","R","Mysuru","Karnataka",57008,9902508574L,"rohanrmanu99@gmail.com");
+        list.add(contactPerson);
         contactPerson.displayPersonDetails();
 
         Scanner scanner = new Scanner(System.in);
@@ -55,7 +58,21 @@ public class AddressBookSystem {
         String email = scanner.next();
 
         ContactPerson contactPerson2 = new ContactPerson(firstName,lastName,city,state,zip,mob,email);
+        list.add(contactPerson2);
         contactPerson2.displayPersonDetails();
+
+        System.out.println("Enter Person name to update person details");
+        String name = scanner.next();
+        for (int i=0;i<list.size();i++)
+        {
+            if(list.get(i).firstName.equals(name))
+            {
+                System.out.println("Yes, Person details present you can update,...");
+            }
+            else {
+                System.out.println("Sorry, Person details not present you can't update,...");
+            }
+        }
 
     }
 }

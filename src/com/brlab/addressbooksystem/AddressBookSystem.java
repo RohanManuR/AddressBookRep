@@ -37,56 +37,42 @@ public class AddressBookSystem {
    static ArrayList<ContactPerson> list = new ArrayList<>();
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program in AddressBook Main class on Master Branch");
-        ContactPerson contactPerson = new ContactPerson("Rohan","R","Mysuru","Karnataka",57008,9902508574L,"rohanrmanu99@gmail.com");
-        list.add(contactPerson);
-        contactPerson.displayPersonDetails();
+//        ContactPerson contactPerson = new ContactPerson("Rohan","R","Mysuru","Karnataka",57008,9902508574L,"rohanrmanu99@gmail.com");
+//        list.add(contactPerson);
+//        contactPerson.displayPersonDetails();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter First name");
-        String firstName = scanner.next();
-        System.out.println("Enter Last name");
-        String lastName = scanner.next();
-        System.out.println("Enter city");
-        String city = scanner.next();
-        System.out.println("Enter state");
-        String state = scanner.next();
-        System.out.println("Enter Zip");
-        int zip = scanner.nextInt();
-        System.out.println("Enter Mobile number");
-        long mob = scanner.nextLong();
-        System.out.println("Enter email");
-        String email = scanner.next();
-
-        ContactPerson contactPerson2 = new ContactPerson(firstName,lastName,city,state,zip,mob,email);
-        list.add(contactPerson2);
-        contactPerson2.displayPersonDetails();
-
-        System.out.println("Enter Person name to update person details");
-        String name = scanner.next();
-        for (int i=0;i<list.size();i++)
+        boolean result = true;
+        do
         {
-            if(list.get(i).firstName.equals(name))
-            {
-                System.out.println("Yes, Person details present you can update,...");
-            }
-            else {
-                System.out.println("Sorry, Person details not present you can't update,...");
-            }
-        }
+            System.out.println("Enter First name");
+            String firstName = scanner.next();
+            System.out.println("Enter Last name");
+            String lastName = scanner.next();
+            System.out.println("Enter city");
+            String city = scanner.next();
+            System.out.println("Enter state");
+            String state = scanner.next();
+            System.out.println("Enter Zip");
+            int zip = scanner.nextInt();
+            System.out.println("Enter Mobile number");
+            long mob = scanner.nextLong();
+            System.out.println("Enter email");
+            String email = scanner.next();
+            ContactPerson contactPerson1 = new ContactPerson(firstName,lastName,city,state,zip,mob,email);
+            list.add(contactPerson1);
+            System.out.println("Person Data added to list,....");
+            System.out.println("Enter \n1 - To Add \n2 - exit");
+            int x = scanner.nextInt();
+            if(x!=1)
+                break;
 
-        System.out.println("Enter Person name to Delete person details");
-        String name1 = scanner.next();
-        for (int i=0;i<list.size();i++)
-        {
-            if(list.get(i).firstName.equals(name1))
-            {
-                System.out.println("Yes, Person details present you can delete,...");
-                list.remove(i);
-            }
-            else {
-                System.out.println("Sorry, Person details not present you can't delete,...");
-            }
-        }
+        }while(result);
+
+       for (ContactPerson person : list)
+       {
+           person.displayPersonDetails();
+       }
 
     }
 }
